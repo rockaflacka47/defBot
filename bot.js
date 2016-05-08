@@ -29,7 +29,7 @@ function postMessage(resNum, word) {
     trollface = urban(word);
 
     trollface.first(function(json) {
-    console.log(json);
+    console.log(json.definition);
     botResponse = json.definition;
     });
 
