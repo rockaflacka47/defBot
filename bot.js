@@ -10,7 +10,7 @@ function respond() {
       console.log(request.sender_id);
   if(request.text && botRegex.test(request.text) && request.name != "devBot") {
       this.res.writeHead(200);
-      if(request.name != "Dom"){
+      if(request.sender_id != 22774873){
         postMessage(0);
       }else {
         postMessage(1);
