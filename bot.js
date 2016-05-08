@@ -27,9 +27,7 @@ function postMessage(resNum, word) {
   var botResponse, options, body, botReq;
   if(resNum == 0){
     botResponse = urban(word);
-    botResponse.first(function(json) {
-      botResponse = json;
-    });
+
   }
   else{
     botResponse = "STFU DOM, don't tell me what to do!"
