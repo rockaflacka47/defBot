@@ -22,7 +22,7 @@ function respond() {
   }
 }
 
-function postMessage(var resNum) {
+function postMessage(resNum) {
   var botResponse, options, body, botReq;
   if(resNum == 0){
     botResponse = "Hi dude, I'm devBot. Eventually I'll do stuff but rn I'm sleeping. Night!";
