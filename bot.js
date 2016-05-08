@@ -25,6 +25,7 @@ function respond() {
 
 function postMessage(resNum, word) {
   var botResponse, options, body, botReq;
+  botresponse = "error";
   if(resNum == 0){
     trollface = urban(word);
 
