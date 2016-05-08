@@ -49,7 +49,7 @@ function postMessage(resNum, word) {
     "text" : botResponse
   };
 
-  sleep(3);
+  sleep.sleep('3');
   console.log('sending ' + botResponse + ' to ' + botID);
 
   botReq = HTTPS.request(options, function(res) {
