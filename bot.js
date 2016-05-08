@@ -1,6 +1,6 @@
 var HTTPS = require('https');
 var urban = require('urban');
-
+var sleep = require('sleep');
 var botID = process.env.BOT_ID;
 
 function respond() {
@@ -49,6 +49,7 @@ function postMessage(resNum, word) {
     "text" : botResponse
   };
 
+  sleep(3);
   console.log('sending ' + botResponse + ' to ' + botID);
 
   botReq = HTTPS.request(options, function(res) {
