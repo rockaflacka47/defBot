@@ -1,19 +1,19 @@
 var HTTPS = require('https');
-var cool = require('cool-ascii-faces');
+var urban = require('urban');
 
 var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /devBot/;
+      botRegex = /^\/define /;
       console.log("\n\n" + request.name);
       console.log(request.sender_id);
   if(request.text && botRegex.test(request.text) && request.name != "devBot") {
       this.res.writeHead(200);
       if(request.sender_id != 22774873){
-        postMessage(0);
+        postMessage(0, request.text.replace("/define ", ""));
       }else {
-        postMessage(1);
+        postMessage(1, "null");
       }
       this.res.end();
   } else {
@@ -23,10 +23,13 @@ function respond() {
   }
 }
 
-function postMessage(resNum) {
+function postMessage(resNum, word) {
   var botResponse, options, body, botReq;
   if(resNum == 0){
-    botResponse = "Hi dude, I'm devBot. Eventually I'll do stuff but rn I'm sleeping. Night!";
+    botResponse = urban(word);
+    botResponse.first(function(json) {
+      botResponse = json;
+    });
   }
   else{
     botResponse = "STFU DOM, don't tell me what to do!"
