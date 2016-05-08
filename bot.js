@@ -11,7 +11,7 @@ function respond() {
       this.res.writeHead(200);
       if(request.name != "Dom"){
         postMessage(0);
-      else {
+      }else {
         postMessage(1);
       }
       this.res.end();
