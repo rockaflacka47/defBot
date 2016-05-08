@@ -9,6 +9,8 @@ function respond() {
 
   if(request.text && botRegex.test(request.text) && request.name != "devBot") {
       this.res.writeHead(200);
+      console.log(request.name);
+      console.log(request.sender_id);
       if(request.name != "Dom"){
         postMessage(0);
       }else {
