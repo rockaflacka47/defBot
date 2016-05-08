@@ -9,7 +9,11 @@ function respond() {
 
   if(request.text && botRegex.test(request.text) && request.name != "devBot") {
       this.res.writeHead(200);
-      postMessage();
+      if(request.name != "Dom"){
+        postMessage(0);
+      else {
+        postMessage(1);
+      }
       this.res.end();
   } else {
     console.log("don't care");
@@ -18,11 +22,14 @@ function respond() {
   }
 }
 
-function postMessage() {
+function postMessage(var resNum) {
   var botResponse, options, body, botReq;
-
-  botResponse = "Hi dude, I'm devBot. Eventually I'll do stuff but rn I'm sleeping. Night!";
-
+  if(resNum == 0){
+    botResponse = "Hi dude, I'm devBot. Eventually I'll do stuff but rn I'm sleeping. Night!";
+  }
+  else{
+    botResponse = "STFU DOM, don't tell me what to do!"
+  }
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
