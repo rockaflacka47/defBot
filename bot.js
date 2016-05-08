@@ -26,7 +26,12 @@ function respond() {
 function postMessage(resNum, word) {
   var botResponse, options, body, botReq;
   if(resNum == 0){
-    botResponse = urban(word);
+    var urban = require('urban'),
+    trollface = urban('trollface');
+
+    trollface.first(function(json) {
+    console.log(json);
+    });
 
   }
   else{
