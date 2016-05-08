@@ -30,7 +30,7 @@ function postMessage(resNum, word) {
 
     trollface.first(function(json) {
     console.log(json);
-    botResponse = JSON.stringify(json.definition);
+    botResponse = json.definition;
     });
 
   }
