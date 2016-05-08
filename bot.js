@@ -49,7 +49,7 @@ function postMessage(resNum, word) {
     "text" : botResponse
   };
 
-  while(!botResponse){
+  while(typeof botResponse == 'undefined'){
   }
   console.log('sending ' + botResponse + ' to ' + botID);
 
