@@ -50,7 +50,7 @@ function postMessage(resNum, word) {
   };
 
   while(botResponse === undefined){
-    console.log("bum\n");
+    console.log("bum");
     sleep.sleep(1);
   }
   console.log('sending ' + botResponse + ' to ' + botID);
