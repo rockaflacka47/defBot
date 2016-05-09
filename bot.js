@@ -31,13 +31,17 @@ function postMessage(resNum, word) {
 
     trollface.first(function(json) {
     console.log(json.definition);
-    botResponse = json.definition;
+    sendDef(json.definition);
     });
+
 
   }
   else{
-    botResponse = "STFU DOM, don't tell me what to do!"
+    sendDef("STFU DOM, don't tell me what to do!");
   }
+}
+
+function sendDef(botResponse){
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
@@ -48,11 +52,6 @@ function postMessage(resNum, word) {
     "bot_id" : botID,
     "text" : botResponse
   };
-
-  while(botResponse === undefined){
-    console.log("bum");
-    sleep.sleep(1);
-  }
   console.log('sending ' + botResponse + ' to ' + botID);
 
   botReq = HTTPS.request(options, function(res) {
