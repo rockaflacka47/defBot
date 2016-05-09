@@ -48,10 +48,9 @@ function postMessage(resNum, word) {
     "bot_id" : botID,
     "text" : botResponse
   };
-  sendMessage(botResponse);
-}
 
-function sendMessage(botResponse){
+  while(botResponse === undefined){
+  }
   console.log('sending ' + botResponse + ' to ' + botID);
 
   botReq = HTTPS.request(options, function(res) {
@@ -69,7 +68,7 @@ function sendMessage(botResponse){
     console.log('timeout posting message '  + JSON.stringify(err));
   });
   botReq.end(JSON.stringify(body));
-
 }
+
 
 exports.respond = respond;
