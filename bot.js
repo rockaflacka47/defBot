@@ -25,7 +25,7 @@ function postMessage(word) {
     botresponse = "error";
     trollface = urban(word);
     trollface.first(function(json) {
-      if(typeof json === undefined){
+      if(typeof json == "undefined"){
         console.log(typeof json);
         sendDef("No definition found");
       }
