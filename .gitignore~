@@ -1,0 +1,5 @@
+# this file tells git what to ignore
+# there is no reason to put node_modules
+# on git, you can also add local files
+# that you don't want to push
+node_modules
