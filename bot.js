@@ -25,8 +25,8 @@ function postMessage(word) {
     botresponse = "error";
     trollface = urban(word);
     trollface.first(function(json) {
-    console.log(json.definition);
-    sendDef(json.definition);
+      console.log(json.definition);
+      sendDef(json.definition);
     });
   }catch(ex){
     sendDef("No definition found");
