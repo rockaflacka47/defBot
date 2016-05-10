@@ -10,11 +10,7 @@ function respond() {
       console.log(request.sender_id);
   if(request.text && botRegex.test(request.text) && request.name != "devBot") {
       this.res.writeHead(200);
-      if(request.sender_id != 22774873){
-        postMessage(0, request.text.replace("/define ", ""));
-      }else {
-        postMessage(1, "null");
-      }
+        postMessage(request.text.replace("/define ", ""));
       this.res.end();
   } else {
     console.log("don't care");
@@ -23,21 +19,17 @@ function respond() {
   }
 }
 
-function postMessage(resNum, word) {
-  var botResponse, options, body, botReq;
-  botresponse = "error";
-  if(resNum == 0){
+function postMessage(word) {
+  try{
+    var botResponse, options, body, botReq;
+    botresponse = "error";
     trollface = urban(word);
-
     trollface.first(function(json) {
     console.log(json.definition);
     sendDef(json.definition);
     });
-
-
-  }
-  else{
-    sendDef("STFU DOM, don't tell me what to do!");
+  }catch(ex){
+    sendDef("No definition found");
   }
 }
 
